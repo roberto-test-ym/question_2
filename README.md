@@ -35,7 +35,9 @@ Visit `localhost:8080` in your browser.
 ## Objetivo
 
 ``` bash
-Estrutura de Dados e Algoritmos Desenvolva uma implementação eficiente em PHP de uma árvore de busca binária balanceada (AVL Tree). Inclua operações de inserção e remoção, e forneça um exemplo de utilização.
+Estrutura de Dados e Algoritmos Desenvolva uma implementação eficiente em PHP
+de uma árvore de busca binária balanceada (AVL Tree). Inclua operações de
+inserção e remoção, e forneça um exemplo de utilização.
 ```
 
 ## License
