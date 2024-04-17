@@ -1,9 +1,9 @@
 <?php
-/* 
-Esta implementação contém as operações de inserção e remoção em uma Árvore AVL. 
-Além disso, inclui a função inorder() para percorrer a árvore em ordem, 
-demonstrando seu conteúdo.
-*/
+/**
+ * Esta implementação contém as operações de inserção e remoção em uma Árvore AVL.
+ * Além disso, inclui a função inorder() para percorrer a árvore em ordem,
+ * demonstrando seu conteúdo.
+ */
 
 class Node {
     public $value;
@@ -26,14 +26,26 @@ class AVLTree {
         $this->root = null;
     }
 
+    /**
+     * @param $node
+     * @return int
+     */
     private function height($node): int {
         return $node ? $node->height : 0;
     }
 
+    /**
+     * @param $node
+     * @return void
+     */
     private function updateHeight($node) {
         $node->height = max($this->height($node->left), $this->height($node->right)) + 1;
     }
 
+    /**
+     * @param $y
+     * @return mixed
+     */
     private function rotateRight($y) {
         $x = $y->left;
         $y->left = $x->right;
@@ -43,6 +55,10 @@ class AVLTree {
         return $x;
     }
 
+    /**
+     * @param $x
+     * @return mixed
+     */
     private function rotateLeft($x) {
         $y = $x->right;
         $x->right = $y->left;
@@ -52,10 +68,19 @@ class AVLTree {
         return $y;
     }
 
+    /**
+     * @param $value
+     * @return void
+     */
     public function insert($value) {
         $this->root = $this->insertRec($this->root, $value);
     }
 
+    /**
+     * @param $node
+     * @param $value
+     * @return mixed|Node
+     */
     private function insertRec($node, $value) {
         if ($node == null) {
             return new Node($value);
@@ -98,10 +123,19 @@ class AVLTree {
         return $node;
     }
 
+    /**
+     * @param $value
+     * @return void
+     */
     public function remove($value) {
         $this->root = $this->removeRec($this->root, $value);
     }
 
+    /**
+     * @param $node
+     * @param $value
+     * @return mixed|null
+     */
     private function removeRec($node, $value) {
         if ($node == null) {
             return $node;
@@ -161,6 +195,10 @@ class AVLTree {
         return $node;
     }
 
+    /**
+     * @param $node
+     * @return mixed
+     */
     private function minValueNode($node) {
         $current = $node;
         while ($current->left != null) {
@@ -169,10 +207,17 @@ class AVLTree {
         return $current;
     }
 
+    /**
+     * @return void
+     */
     public function inorder() {
         $this->inorderRec($this->root);
     }
 
+    /**
+     * @param $node
+     * @return void
+     */
     private function inorderRec($node) {
         if ($node != null) {
             $this->inorderRec($node->left);
